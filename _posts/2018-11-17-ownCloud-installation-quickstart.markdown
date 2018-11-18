@@ -33,14 +33,13 @@ production/RHEL_7/repodata/repomd.xml.key
 
 2. Download the ownCloud package from the repository:
 
-```
-# wget http://download.owncloud.org/download/repositories/\
+```# wget http://download.owncloud.org/download/repositories/\
 production/RHEL_7/ce:stable.repo -O /etc/yum.repos.d/ce:stable.repo
 ```
 
 3. Install the ownCloud distribution package:
 
-   ```# yum clean all```
+   ```# yum clean all```<br>
    ```# yum install owncloud-files```
 
 You have installed the ownCloud package. Now you should run the installation wizard.
