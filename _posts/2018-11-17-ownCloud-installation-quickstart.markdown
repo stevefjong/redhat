@@ -18,7 +18,7 @@ These procedures assume that you're familiar with installing Linux distribution 
 
 These procedures also assume a user familiar with installing MacOS packages.
 
-**Note**: Before putting an ownCloud server into production, you will need to ensure that your system has the resources to support the traffic and ever-increasing volume of data that your users will require. For details on deployment, go to <https://doc.owncloud.org/server/latest/admin_manual/installation/deployment_considerations.html>.
+**Note**: Before putting an ownCloud server into production, you will need to ensure that your system has the resources to support the traffic and ever-increasing volume of data that your users will require. For details on deployment, go to ["Deployment Considerations"](https://doc.owncloud.org/server/latest/admin_manual/installation/deployment_considerations.html) in the ownCloud Server Administration Manual.
 
 ## Installing the ownCloud Package
 
@@ -26,13 +26,13 @@ This procedure installs the latest stable `owncloud-files` Community Edition dis
 
 1. Trust the ownCloud repository:
 
-   ```# rpm --import https://download.owncloud.org/download/repositories/\```<br>
-   ```production/RHEL_7/repodata/repomd.xml.key```
+   ```# rpm --import https://download.owncloud.org/download/\```<br>
+   ```repositories/production/RHEL_7/repodata/repomd.xml.key```
 
 2. Download the ownCloud package from the repository:
 
-   ```# wget http://download.owncloud.org/download/repositories/\```<br>
-   ```production/RHEL_7/ce:stable.repo -O /etc/yum.repos.d/ce:stable.repo```
+   ```# wget http://download.owncloud.org/download/\```<br>
+   ```repositories/production/RHEL_7/ce:stable.repo -O /etc/yum.repos.d/ce:stable.repo```
 
 3. Install the ownCloud distribution package:
 
@@ -57,7 +57,7 @@ The installation wizard creates an administrator account for the ownCloud server
 
 You can now use the ownCloud server.
 
-For details on the installation wizard, including post-installation hardening steps, go to <https://doc.owncloud.org/server/latest/admin_manual/installation/installation_wizard.html>.
+For details on the installation wizard, including post-installation hardening steps, go to ["The Installation Wizard"](https://doc.owncloud.org/server/latest/admin_manual/installation/installation_wizard.html) in the ownCloud Server Administration Manual.
 
 ## Enabling Users to Connect to the ownCloud Server
 
@@ -69,7 +69,7 @@ For users to connect to your ownCloud server, they need the server's IP address 
 
 You can now provide the user with the ownCloud server address and these credentials.
 
-For details on creating a user account, go to <https://doc.owncloud.org/server/latest/admin_manual/configuration/user/user_configuration.html#creating-a-new-user>.
+For details on creating a user account, go to ["Creating a New User"](https://doc.owncloud.org/server/latest/admin_manual/configuration/user/user_configuration.html#creating-a-new-user) in the ownCloud Server Administration Manual.
 
 ## Installing an ownCloud Client
 
@@ -77,7 +77,8 @@ This procedure completes a standard default installation of the ownCloud client 
 
 1. On the desktop, open a web browser and enter this URL:
 
-   ```https://download.owncloud.com/desktop/stable/ownCloud-2.5.1.10818.pkg```
+   ```https://download.owncloud.com/desktop/stable/\```<br>
+   ```ownCloud-2.5.1.10818.pkg```
 
    The ownCloud installer package file is downloaded to the Downloads folder.
 
