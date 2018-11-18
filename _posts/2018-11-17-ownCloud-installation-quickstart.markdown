@@ -53,9 +53,7 @@ The installation wizard creates an administrator account for the ownCloud server
 
 1. On the ownCloud server, open a web browser and enter this URL:
 
-```
-http://localhost/owncloud
-```
+    ```http://localhost/owncloud```
 
    The ownCloud Setup page opens.
 
