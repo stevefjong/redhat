@@ -40,10 +40,8 @@ production/RHEL_7/ce:stable.repo -O /etc/yum.repos.d/ce:stable.repo
 
 3. Install the ownCloud distribution package:
 
-```
-# yum clean all
-# yum install owncloud-files
-```
+   ```# yum clean all```
+   ```# yum install owncloud-files```
 
 You have installed the ownCloud package. Now you should run the installation wizard.
 
