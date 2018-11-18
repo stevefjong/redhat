@@ -26,16 +26,13 @@ This procedure installs the latest stable `owncloud-files` Community Edition dis
 
 1. Trust the ownCloud repository:
 
-```
-# rpm --import https://download.owncloud.org/download/repositories/\
-production/RHEL_7/repodata/repomd.xml.key
-```
+   ```# rpm --import https://download.owncloud.org/download/repositories/\```
+   ```production/RHEL_7/repodata/repomd.xml.key```
 
 2. Download the ownCloud package from the repository:
 
-```# wget http://download.owncloud.org/download/repositories/\
-production/RHEL_7/ce:stable.repo -O /etc/yum.repos.d/ce:stable.repo
-```
+   ```# wget http://download.owncloud.org/download/repositories/\```
+   ```production/RHEL_7/ce:stable.repo -O /etc/yum.repos.d/ce:stable.repo```
 
 3. Install the ownCloud distribution package:
 
