@@ -85,7 +85,7 @@ This procedure completes a standard default installation of the ownCloud client 
 
 1. On the desktop, open a web browser and enter this URL:
 
-```https://download.owncloud.com/desktop/stable/ownCloud-2.5.1.10818.pkg```
+   ```https://download.owncloud.com/desktop/stable/ownCloud-2.5.1.10818.pkg```
 
    The ownCloud installer package file is downloaded to the Downloads folder.
 
