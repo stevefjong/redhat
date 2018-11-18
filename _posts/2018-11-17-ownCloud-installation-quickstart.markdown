@@ -26,21 +26,21 @@ This procedure installs the latest stable `owncloud-files` Community Edition dis
 
 1. Trust the ownCloud repository:
 
-   ```
+```
 # rpm --import https://download.owncloud.org/download/repositories/\
 production/RHEL_7/repodata/repomd.xml.key
 ```
 
 2. Download the ownCloud package from the repository:
 
-   ```
+```
 # wget http://download.owncloud.org/download/repositories/\
 production/RHEL_7/ce:stable.repo -O /etc/yum.repos.d/ce:stable.repo
 ```
 
 3. Install the ownCloud distribution package:
 
-   ```
+```
 # yum clean all
 # yum install owncloud-files
 ```
@@ -53,7 +53,7 @@ The installation wizard creates an administrator account for the ownCloud server
 
 1. On the ownCloud server, open a web browser and enter this URL:
 
-   ```
+```
 http://localhost/owncloud
 ```
 
@@ -85,7 +85,7 @@ This procedure completes a standard default installation of the ownCloud client 
 
 1. On the desktop, open a web browser and enter this URL:
 
-   ```https://download.owncloud.com/desktop/stable/ownCloud-2.5.1.10818.pkg```
+```https://download.owncloud.com/desktop/stable/ownCloud-2.5.1.10818.pkg```
 
    The ownCloud installer package file is downloaded to the Downloads folder.
 
