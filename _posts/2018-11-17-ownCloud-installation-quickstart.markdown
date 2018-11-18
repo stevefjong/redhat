@@ -118,7 +118,8 @@ Once your ownCloud server is installed, configured, and running, and a user's ac
 
 1. From the Applications folder, open the owncloud application
 
-   The ownCloud Connection Wizard opens.
+   The ownCloud Connection Wizard opens:
+   ![owncloud Connection Wizard window](/assets/ownCloud_Connection_Wizard.png "Connection Wizard")
 
 2. Enter the server address and click **Next**
 
