@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-11-17T20:00:28-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Steven Jong</title><subtitle>Red Hat writing test, November 2018</subtitle><entry><title type="html">ownCloud Quickstart</title><link href="http://localhost:4000/2018/11/17/ownCloud-installation-quickstart.html" rel="alternate" type="text/html" title="ownCloud Quickstart" /><published>2018-11-17T18:00:00-05:00</published><updated>2018-11-17T18:00:00-05:00</updated><id>http://localhost:4000/2018/11/17/ownCloud-installation-quickstart</id><content type="html" xml:base="http://localhost:4000/2018/11/17/ownCloud-installation-quickstart.html">&lt;h1 id=&quot;quick-start-installing-and-using-owncloud&quot;&gt;Quick Start: Installing and Using ownCloud&lt;/h1&gt;
+
+&lt;p&gt;ownCloud is an open-source file sharing server that you control. With an ownCloud server you can store your private data, such as passwords, files, photos, music, movies, contacts, and calendar entries, and access it with devices such as Android and iPhone smartphones. ownCloud supports HTTPS and offers server-side encryption, so that you can securely share your data with other people and collaborate with them on documents. ownCloud synchronizes data, so that every device has the same data.&lt;/p&gt;
+
+&lt;p&gt;Here’s how to install and configure the latest stable version of ownCloud server on a single machine running Red Hat Enterprise Linux (RHEL) 7; install the ownCloud desktop client on a MacOS desktop system; and connect from the client to the server for test and demonstration purposes. While ownCloud offers a range of installation options, these procedures describe a simple process for installing a Linux package and a desktop client.&lt;/p&gt;
+
+&lt;p&gt;These procedures assume that you’re familiar with installing Linux distribution packages, and that you are running this LAMP stack:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Red Hat Enterprise Linux 7 operating system&lt;/li&gt;
+  &lt;li&gt;Apache 2.4 web server&lt;/li&gt;
+  &lt;li&gt;SQLite&lt;/li&gt;
+  &lt;li&gt;PHP 5.6+ runtime&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These procedures also assume a user familiar with installing MacOS packages.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: Before putting an ownCloud server into production, you will need to ensure that your system has the resources to support the traffic and ever-increasing volume of data that your users will require. For details on deployment, go to &lt;a href=&quot;https://doc.owncloud.org/server/latest/admin_manual/installation/deployment_considerations.html&quot;&gt;https://doc.owncloud.org/server/latest/admin_manual/installation/deployment_considerations.html&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;installing-the-owncloud-package&quot;&gt;Installing the ownCloud Package&lt;/h2&gt;
+
+&lt;p&gt;This procedure installs the latest stable &lt;code class=&quot;highlighter-rouge&quot;&gt;owncloud-files&lt;/code&gt; Community Edition distribution package. Run the following shell commands as &lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt;.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Trust the ownCloud repository:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# rpm --import https://download.owncloud.org/download/repositories/\
+production/RHEL_7/repodata/repomd.xml.key
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Download the ownCloud package from the repository:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# wget http://download.owncloud.org/download/repositories/\
+production/RHEL_7/ce:stable.repo -O /etc/yum.repos.d/ce:stable.repo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Install the ownCloud distribution package:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# yum clean all
+# yum install owncloud-files
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;You have installed the ownCloud package. Now you should run the installation wizard.&lt;/p&gt;
+
+&lt;h2 id=&quot;running-the-installation-wizard&quot;&gt;Running the Installation Wizard&lt;/h2&gt;
+
+&lt;p&gt;The installation wizard creates an administrator account for the ownCloud server. Defining administrator credentials is important to prevent a malicious actor from locking you out. Here’s how to create an administrator account.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the ownCloud server, open a web browser and enter this URL:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://localhost/owncloud
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;The ownCloud Setup page opens.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Enter the administrator username and password you want to use and click &lt;strong&gt;Finish Setup&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;The administrator credentials are defined.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;You can now use the ownCloud server.&lt;/p&gt;
+
+&lt;p&gt;For details on the installation wizard, including post-installation hardening steps, go to &lt;a href=&quot;https://doc.owncloud.org/server/latest/admin_manual/installation/installation_wizard.html&quot;&gt;https://doc.owncloud.org/server/latest/admin_manual/installation/installation_wizard.html&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;enabling-users-to-connect-to-the-owncloud-server&quot;&gt;Enabling Users to Connect to the ownCloud Server&lt;/h2&gt;
+
+&lt;p&gt;For users to connect to your ownCloud server, they need the server’s IP address and their account credentials. Here’s how to create a user account with default values using the Web UI.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the ownCloud User Management page, enter the new user’s Login Name and initial Password and click &lt;strong&gt;Create&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;The user information is added to the displayed list.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;You can now provide the user with the ownCloud server address and these credentials.&lt;/p&gt;
+
+&lt;p&gt;For details on creating a user account, go to &lt;a href=&quot;https://doc.owncloud.org/server/latest/admin_manual/configuration/user/user_configuration.html#creating-a-new-user&quot;&gt;https://doc.owncloud.org/server/latest/admin_manual/configuration/user/user_configuration.html#creating-a-new-user&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;installing-an-owncloud-client&quot;&gt;Installing an ownCloud Client&lt;/h2&gt;
+
+&lt;p&gt;This procedure completes a standard default installation of the ownCloud client on a MacOS desktop system.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;On the desktop, open a web browser and enter this URL:&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;https://download.owncloud.com/desktop/stable/ownCloud-2.5.1.10818.pkg&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;The ownCloud installer package file is downloaded to the Downloads folder.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In the Downloads folder, open the ownCloud installer package file.&lt;/p&gt;
+
+    &lt;p&gt;The ownCloud Client Installer starts.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Click &lt;strong&gt;Continue&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;The installer gives you the option to change the installation location.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Click &lt;strong&gt;Install&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;The installer prompts you for administrator credentials.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Enter your administrator credentials and click &lt;strong&gt;Install Software&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;The package is installed, and you are prompted, “The installation was successful.”&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Click &lt;strong&gt;Close&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;You are prompted to move the installer to the Trash.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Click &lt;strong&gt;Move to Trash&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;The installer file is moved to the Trash.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;You have installed the ownCloud desktop client.&lt;/p&gt;
+
+&lt;p&gt;For details on installing ownCloud desktop clients, go to &lt;a href=&quot;https://doc.owncloud.org/desktop/latest/&quot;&gt;https://doc.owncloud.org/desktop/latest/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;connecting-to-the-owncloud-server&quot;&gt;Connecting to the ownCloud Server&lt;/h2&gt;
+
+&lt;p&gt;Once your ownCloud server is installed, configured, and running, and a user’s account is defined, that user can connect to it through a desktop or mobile client. Here’s how to connect to an ownCloud server using an ownCloud MacOS desktop client.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;From the Applications folder, open the owncloud application&lt;/p&gt;
+
+    &lt;p&gt;The ownCloud Connection Wizard opens.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Enter the server address and click &lt;strong&gt;Next&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;The connection wizard prompts you to enter your user credentials.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Enter your username and password and click &lt;strong&gt;Next&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;The connection wizard prompts you to set up local folder options.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Click &lt;strong&gt;Connect&lt;/strong&gt; (this uses the default option of synching all of your files on the ownCloud server)&lt;/p&gt;
+
+    &lt;p&gt;The ownCloud Desktop Client icon appears on the menu bar.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The client is connected with the ownCloud server and begins synchronizing your files.&lt;/p&gt;
+
+&lt;p&gt;For details on the ownCloud desktop client, go to &lt;a href=&quot;https://doc.owncloud.org/desktop/latest/navigating.html&quot;&gt;https://doc.owncloud.org/desktop/latest/navigating.html&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">Quick Start: Installing and Using ownCloud</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2018/11/17/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2018-11-17T17:17:30-05:00</published><updated>2018-11-17T17:17:30-05:00</updated><id>http://localhost:4000/jekyll/update/2018/11/17/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2018/11/17/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
